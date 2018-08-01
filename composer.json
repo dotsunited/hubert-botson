@@ -1,0 +1,10 @@
+{
+    "require": {
+        "botman/botman": "^2.3",
+        "botman/driver-slack": "^2.1",
+        "vlucas/phpdotenv": "^2.5"
+    },
+    "require-dev": {
+        "heroku/heroku-buildpack-php": "^140.0"
+    }
+}
