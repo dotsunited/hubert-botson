@@ -14,7 +14,7 @@ function loadConfigs($configDir) {
     return $config;
 }
 
-function loadCommands($commandDir) {
+function loadCommands(&$botman, $commandDir) {
     $files = scandir($commandDir, SCANDIR_SORT_ASCENDING);
 
     foreach ($files as $file) {
