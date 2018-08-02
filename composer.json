@@ -1,4 +1,14 @@
 {
+    "name": "dotsunited/hubert-botson",
+    "description": "Huber Botson with botman.io",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "DotsUnited",
+            "email": "info@dotsunited.de"
+        }
+    ],
     "require": {
         "php": "~7.0",
         "ext-json": "*",
