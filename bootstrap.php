@@ -7,8 +7,10 @@ use BotMan\BotMan\BotManFactory;
 /**
  * Load Environment Variables
  */
-$dotenv = new Dotenv(__DIR__);
-$dotenv->load();
+if ('production' !== getenv('ENVIRONMENT')) {
+    $dotenv = new Dotenv(__DIR__);
+    $dotenv->load();
+}
 
 /**
  * Load Drivers
