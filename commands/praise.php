@@ -24,5 +24,5 @@ $botman->hears('peace {name}', function (BotMan $bot, $name) {
 });
 
 $botman->hears('sad {name}', function (BotMan $bot, $name) {
-    $bot->reply(':spock-hand: ' . $name);
+    $bot->reply(':sob: ' . $name);
 });
