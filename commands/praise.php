@@ -3,10 +3,6 @@
 use BotMan\BotMan\BotMan;
 
 /** @var $botman BotMan */
-$botman->hears('^5 {name}', function (BotMan $bot, $name) {
-    $bot->reply(':raised_hands: ' . $name);
-});
-
 $botman->hears('h5 {name}', function (BotMan $bot, $name) {
     $bot->reply(':raised_hands: ' . $name);
 });
@@ -21,4 +17,12 @@ $botman->hears('nice {name}', function (BotMan $bot, $name) {
 
 $botman->hears('gg {name}', function (BotMan $bot, $name) {
     $bot->reply(':ok_hand: ' . $name);
+});
+
+$botman->hears('peace {name}', function (BotMan $bot, $name) {
+    $bot->reply(':spock-hand: ' . $name);
+});
+
+$botman->hears('sad {name}', function (BotMan $bot, $name) {
+    $bot->reply(':spock-hand: ' . $name);
 });
