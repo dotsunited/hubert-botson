@@ -9,6 +9,6 @@ $botman->hears('time', function (BotMan $bot) {
 });
 
 $botman->hears('debug (.*)', function (BotMan $bot) {
-    $bot->reply(json_encode($bot->getMessage()->getPayload()));
+    $bot->reply(str_rot13(json_encode($bot->getMessage()->getPayload())));
 });
 
