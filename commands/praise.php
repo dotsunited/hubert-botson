@@ -26,3 +26,11 @@ $botman->hears('peace {name}', function (BotMan $bot, $name) {
 $botman->hears('sad {name}', function (BotMan $bot, $name) {
     $bot->reply(':sob: ' . $name);
 });
+
+$botman->hears(':+1: {name}', function (BotMan $bot, $name) {
+    $bot->reply('keep doing great work ' . $name);
+});
+
+$botman->hears('{name} :+1:', function (BotMan $bot, $name) {
+    $bot->reply('keep doing great work ' . $name);
+});
