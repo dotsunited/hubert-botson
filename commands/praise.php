@@ -5,8 +5,8 @@ use BotMan\BotMan\BotMan;
 /** @var $botman BotMan */
 $botman->hears('h5 {name}', function (BotMan $bot, $name) {
     $bot->randomReply([
-        ':kissing_heart:' . $name,
-        ':star-struck:' . $name,
+        ':kissing_heart: ' . $name,
+        ':star-struck: ' . $name,
         ':muscle: ' . $name,
         ':raised_hands: ' . $name,
         ':ok_hand: ' . $name,
