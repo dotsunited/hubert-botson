@@ -8,3 +8,7 @@ $botman->hears('time', function (BotMan $bot) {
     $bot->reply($date->format('l, d. F Y (W. \C\W) H:i:s'));
 });
 
+$botman->hears('debug (.*)', function (BotMan $bot) {
+    $bot->reply(json_encode($bot->getMessage()->getPayload()));
+});
+
