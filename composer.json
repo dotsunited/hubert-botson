@@ -1,6 +1,6 @@
 {
     "require": {
-        "php": "~7.0.0",
+        "php": "~7.0",
         "ext-json": "*",
         "botman/botman": "^2.3",
         "botman/driver-slack": "^2.1",
