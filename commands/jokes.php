@@ -10,6 +10,6 @@ $botman->hears('tell me a joke', function (BotMan $bot, $name) {
     $bot->reply($object->value->joke);
 });
 
-$botman->hears('.*(essen|Essen).*', function (BotMan $bot, $name) {
+$botman->hears('.* (essen|Essen) .*', function (BotMan $bot, $name) {
     $bot->reply(':chompy: :pizza:');
 });
