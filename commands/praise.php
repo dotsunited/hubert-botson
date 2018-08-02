@@ -23,7 +23,6 @@ $botman->hears('h5 {name}', function (BotMan $bot, $name) {
         ':excellent: ' . $name,
         ':heart_eyes: ' . $name,
         ':kissing_closed_eyes: ' . $name,
-
     ]);
 });
 
@@ -35,10 +34,10 @@ $botman->hears('sad {name}', function (BotMan $bot, $name) {
     $bot->reply(':sob: ' . $name);
 });
 
-$botman->hears(':+1: {name}', function (BotMan $bot, $name) {
+$botman->hears('(.*) :\+1:', function (BotMan $bot, $name) {
     $bot->reply('keep doing great work ' . $name);
 });
 
-$botman->hears('{name} :+1:', function (BotMan $bot, $name) {
+$botman->hears(':\+1: (.*)', function (BotMan $bot, $name) {
     $bot->reply('keep doing great work ' . $name);
 });
