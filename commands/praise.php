@@ -4,19 +4,27 @@ use BotMan\BotMan\BotMan;
 
 /** @var $botman BotMan */
 $botman->hears('h5 {name}', function (BotMan $bot, $name) {
-    $bot->reply(':raised_hands: ' . $name);
-});
+    $bot->randomReply([
+        ':kissing_heart:' . $name,
+        ':star-struck:' . $name,
+        ':muscle: ' . $name,
+        ':raised_hands: ' . $name,
+        ':ok_hand: ' . $name,
+        ':+1: ' . $name,
+        ':clap: ' . $name,
+        ':i_love_you_hand_sign: ' . $name,
+        ':handshake: ' . $name,
+        ':fist: ' . $name,
+        ':hugging_face: ' . $name,
+        ':heartpulse: ' . $name,
+        ':awwyeah: ' . $name,
+        ':heart: ' . $name,
+        ':thumbsup_all: ' . $name,
+        ':excellent: ' . $name,
+        ':heart_eyes: ' . $name,
+        ':kissing_closed_eyes: ' . $name,
 
-$botman->hears('you rock {name}', function (BotMan $bot, $name) {
-    $bot->reply(':muscle: ' . $name);
-});
-
-$botman->hears('nice {name}', function (BotMan $bot, $name) {
-    $bot->reply(':+1: ' . $name);
-});
-
-$botman->hears('gg {name}', function (BotMan $bot, $name) {
-    $bot->reply(':ok_hand: ' . $name);
+    ]);
 });
 
 $botman->hears('peace {name}', function (BotMan $bot, $name) {
