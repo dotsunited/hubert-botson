@@ -17,4 +17,3 @@ $botman->hears('userinfo', function (BotMan $bot) {
         'as_user' => true,
     ]);
 });
-
