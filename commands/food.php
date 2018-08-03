@@ -7,15 +7,15 @@ $botman->hears('.*\b(Essen|essen)\b.*', function (BotMan $bot) {
     $bot->reply(':chompy: :pizza:');
 });
 
-$botman->hears('order ([^ ]+)( [^ ]+)?( http[^ ]+)?', function (BotMan $bot, $matches) {
-    $reply = '<!here> wir bestellen bei ' . $matches[1] . '. Wer möchte mitbestellen?';
+$botman->hears('order ([^ ]+)( [^ ]+)?( http[^ ]+)?', function (BotMan $bot, $restaurant, $user = null, $link = null) {
+    $reply = '<!here> wir bestellen bei ' . $restaurant . '. Wer möchte mitbestellen?';
 
-    if ($matches[2]) {
-        $reply .= 'Bestellung an ' . trim($matches[2]) . '. ';
+    if ($user) {
+        $reply .= 'Bestellung an ' . trim($user) . '. ';
     }
 
-    if ($matches[3]) {
-        $reply .= '(' . trim($matches[3]) . ')';
+    if ($link) {
+        $reply .= '(' . trim($link) . ')';
     }
 
     $bot->reply($reply);
