@@ -7,7 +7,7 @@ $botman->hears('userinfo', function (BotMan $bot) {
     $bot->sendRequest('chat.postEphemeral', [
         'channel' => $bot->getMessage()->getRecipient(),
         'text' => sprintf(
-            'Userinfo: #%s - %s %s - @%s',
+            '%s %s (%s), id: %s',
             $bot->getUser()->getId(),
             $bot->getUser()->getFirstName(),
             $bot->getUser()->getLastName(),
