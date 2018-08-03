@@ -8,7 +8,7 @@ $botman->hears('.*\b(Essen|essen)\b.*', function (BotMan $bot) {
 });
 
 $botman->hears('order ([^ ]+)( [^ ]+)?( http[^ ]+)?', function (BotMan $bot, $restaurant, $user = null, $link = null) {
-    $reply = '<!here> wir bestellen bei ' . $restaurant . '. Wer möchte mitbestellen?';
+    $reply = '<!here> wir bestellen bei ' . $restaurant . '. Wer möchte mitbestellen? ';
 
     if ($user) {
         $reply .= 'Bestellung an ' . trim($user) . '. ';
@@ -18,5 +18,5 @@ $botman->hears('order ([^ ]+)( [^ ]+)?( http[^ ]+)?', function (BotMan $bot, $re
         $reply .= '(' . trim($link) . ')';
     }
 
-    $bot->reply($reply);
+    $bot->reply(json_encode($bot->getMessage()->getPayload()));
 });
