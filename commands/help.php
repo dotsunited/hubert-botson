@@ -26,7 +26,10 @@ $botman->hears('help', function (BotMan $bot) {
                     ],
                     [
                         'title' => 'Helpers',
-                        'value' => 'time|today|now - displays current time'
+                        'value' => <<<EOD
+time|today|now - displays current time
+ping - returns pong
+EOD
                     ],
                     [
                         'title' => 'Jokes',
