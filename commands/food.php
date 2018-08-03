@@ -8,7 +8,7 @@ $botman->hears('.*\b(Essen|essen)\b.*', function (BotMan $bot) {
 });
 
 $botman->hears('order ([\D]+)( [\D]+)?( http[\D]+)?', function (BotMan $bot, $restaurant, $user, $link) {
-    $reply = '@here wir bestellen bei ' . $restaurant . '. Wer möchte mitbestellen?';
+    $reply = '<!here> wir bestellen bei ' . $restaurant . '. Wer möchte mitbestellen?';
 
     if (trim($user)) {
         $reply .= 'Bestellung an ' . trim($user) . '. ';
