@@ -7,7 +7,7 @@ $botman->hears('.*\b(Essen|essen)\b.*', function (BotMan $bot) {
     $bot->reply(':chompy: :pizza:');
 });
 
-$botman->hears('order at (.*) (.*)? (http.*)?', function (BotMan $bot, $restaurant, $user, $link) {
+$botman->hears('order at (.*) ?(.*) ?(http.*)', function (BotMan $bot, $restaurant, $user, $link) {
     $reply = '@here bestellen bei ' . $restaurant . '. ';
 
     if ($user) {
