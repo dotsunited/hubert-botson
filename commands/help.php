@@ -17,6 +17,10 @@ $botman->hears('help', function (BotMan $bot) {
                         'value' => 'echo {text} - echos the given text',
                     ],
                     [
+                        'title' => 'Food',
+                        'value' => 'order {restaurant} {purchaser?} {link?}  - asks @here who wants to purchase food in the given restaurant',
+                    ],
+                    [
                         'title' => 'Help',
                         'value' => 'help - displays this help',
                     ],
