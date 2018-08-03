@@ -4,12 +4,6 @@ use BotMan\BotMan\BotMan;
 
 /** @var $botman BotMan */
 $botman->hears('userinfo', function (BotMan $bot) {
-    $bot->sendRequest('chat.delete', [
-        'channel' => $bot->getMessage()->getRecipient(),
-        'ts' => $bot->getMessage()->getPayload()['event']['ts'],
-        'as_user' => true,
-    ]);
-
     $bot->sendRequest('chat.postEphemeral', [
         'channel' => $bot->getMessage()->getRecipient(),
         'text' => sprintf(

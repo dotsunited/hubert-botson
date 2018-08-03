@@ -47,7 +47,6 @@ EOD
                 ]
             ]
         ],
-        'user' => $bot->getUser()->getId(),
         'as_user' => true,
     ]);
 });
