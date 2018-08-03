@@ -6,7 +6,8 @@ use BotMan\BotMan\BotMan;
 $botman->hears('help', function (BotMan $bot) {
     $bot->sendRequest('chat.postMessage', [
         'channel' => $bot->getMessage()->getRecipient(),
-        'attachments' => [
+        'as_user' => true,
+        'attachments' => json_encode([
             [
                 'color' => '',
                 'title' => 'Hubert Botson Commands',
@@ -46,7 +47,6 @@ EOD
                     ]
                 ]
             ]
-        ],
-        'as_user' => true,
+        ]),
     ]);
 });
