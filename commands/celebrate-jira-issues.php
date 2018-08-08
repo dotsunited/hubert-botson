@@ -7,7 +7,7 @@ $botman->hears('(.*)', function (BotMan $bot, $pattern) {
     if ('Jira Cloud' === $bot->getUser()->getUsername()) {
         $payload = $bot->getMessage()->getPayload();
 
-        $bot->reply($payload['attachments']);
+        $bot->reply($payload->attachments);
 
         $title = reset($payload['attachments'])['title'];
         $issueId = 0;
