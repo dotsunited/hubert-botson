@@ -14,6 +14,8 @@ $botman->hears('(.*)', function (BotMan $bot, $pattern) {
             return;
         }
 
+        $bot->reply($issueId);
+
         $text = reset($payload['attachments'])['text'];
         if (false !== preg_match('/^\*.*\* transitioned a `.*` from `.*` to `(.*)`/', $text, $matches)) {
             $status = $matches[1];
