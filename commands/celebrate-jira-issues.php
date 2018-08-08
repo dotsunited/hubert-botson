@@ -3,7 +3,9 @@
 use BotMan\BotMan\BotMan;
 
 /** @var $botman BotMan */
-$botman->hears('(.*)', function (BotMan $bot, $pattern) {
+$botman->hears('/^\*.*\* transitioned a `.*` from `.*` to `(.*)`/', function (BotMan $bot, $status) {
+    $bot->reply($status);
+
     if ('BBYVB4RK4' === $bot->getMessage()->getPayload()['bot_id']) {
         $payload = $bot->getMessage()->getPayload();
 
@@ -15,18 +17,6 @@ $botman->hears('(.*)', function (BotMan $bot, $pattern) {
         }
 
         $bot->reply($issueId);
-
-        $text = reset($payload['attachments'])['text'];
-        if (false !== preg_match('/^\*.*\* transitioned a `.*` from `.*` to `(.*)`/', $text, $matches)) {
-            $status = $matches[1];
-
-            $bot->reply($status);
-            if (!in_array($status, ['Done', 'Resolved'])) {
-                return;
-            }
-        } else {
-            $bot->reply($text);
-        }
 
         $bot->reply($status, $issueId);
 
