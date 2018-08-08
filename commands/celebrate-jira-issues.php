@@ -15,7 +15,7 @@ $botman->hears('^\*.*\* transitioned a `.*` from `.*` to `(.*)`', function (BotM
 
     $title = reset($payload['attachments'])['title'];
     if (false !== preg_match('/^([A-Z]+-([\d]+))/', $title, $matches)) {
-        list(,, $issueId) = $matches;
+        list(, $issue, $issueId) = $matches;
     } else {
         return;
     }
@@ -42,6 +42,7 @@ $botman->hears('^\*.*\* transitioned a `.*` from `.*` to `(.*)`', function (BotM
             'as_user' => true,
             'attachments' => json_encode([
                 [
+                    'title' => 'Let\'s celebrate!',
                     'image_url' => 'https://' . $_SERVER['HTTP_HOST'] . '/assets/celebrate-jira-issues/' . $celebrate . '.gif'
                 ]
             ]),
