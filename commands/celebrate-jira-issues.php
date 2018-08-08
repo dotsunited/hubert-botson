@@ -6,22 +6,21 @@ use BotMan\BotMan\BotMan;
 $botman->hears('(.*)', function (BotMan $bot, $pattern) {
     if ('BBYVB4RK4' === $bot->getMessage()->getPayload()['bot_id']) {
         $payload = $bot->getMessage()->getPayload();
+        $bot->reply(json_encode($payload));
 
         $text = reset($payload['attachments'])['pretext'];
         if (false !== preg_match('/^\*.*\* transitioned a `.*` from `.*` to `(.*)`/', $text, $matches)) {
             $status = $matches[1];
 
-            $bot->reply($status);
             if (!in_array($status, ['Done', 'Resolved'])) {
                 return;
             }
         } else {
-            $bot->reply($text);
             return;
         }
 
         $title = reset($payload['attachments'])['title'];
-        if (false !== preg_match('/^([A-Z]+-([0-9]+))/', $title, $matches)) {
+        if (false !== preg_match('/^([A-Z]+-([\d]+))/', $title, $matches)) {
             list(,, $issueId) = $matches;
         } else {
             return;
