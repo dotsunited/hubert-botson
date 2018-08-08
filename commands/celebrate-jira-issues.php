@@ -7,16 +7,6 @@ $botman->hears('(.*)', function (BotMan $bot, $pattern) {
     if ('BBYVB4RK4' === $bot->getMessage()->getPayload()['bot_id']) {
         $payload = $bot->getMessage()->getPayload();
 
-        $title = reset($payload['attachments'])['title'];
-        if (false !== preg_match('/^([A-Z]+-([0-9]+))/', $title, $matches)) {
-            list(,, $issueId) = $matches;
-        } else {
-            return;
-        }
-
-        $bot->reply($issueId);
-        $bot->reply($payload['attachments'][0]);
-
         $text = reset($payload['attachments'])['pretext'];
         if (false !== preg_match('/^\*.*\* transitioned a `.*` from `.*` to `(.*)`/', $text, $matches)) {
             $status = $matches[1];
@@ -27,7 +17,17 @@ $botman->hears('(.*)', function (BotMan $bot, $pattern) {
             }
         } else {
             $bot->reply($text);
+            return;
         }
+
+        $title = reset($payload['attachments'])['title'];
+        if (false !== preg_match('/^([A-Z]+-([0-9]+))/', $title, $matches)) {
+            list(,, $issueId) = $matches;
+        } else {
+            return;
+        }
+
+        $bot->reply(json_encode($payload['attachments']));
 
         $bot->reply($status, $issueId);
 
