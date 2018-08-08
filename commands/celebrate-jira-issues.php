@@ -15,7 +15,7 @@ $botman->hears('^\*.*\* transitioned a `.*` from `.*` to `(.*)`', function (BotM
 
     $title = reset($payload['attachments'])['title'];
     if (false !== preg_match('/^([A-Z]+-([\d]+))/', $title, $matches)) {
-        list(, $issue, $issueId) = $matches;
+        list(,, $issueId) = $matches;
     } else {
         return;
     }
@@ -30,7 +30,7 @@ $botman->hears('^\*.*\* transitioned a `.*` from `.*` to `(.*)`', function (BotM
             continue;
         }
 
-        if (false !== strpos($file, $issueId)) {
+        if ($issueId . '.gif' === $file) {
             $celebrate = $issueId;
             break;
         }
