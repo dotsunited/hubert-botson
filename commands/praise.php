@@ -34,10 +34,10 @@ $botman->hears('sad {name}', function (BotMan $bot, $name) {
     $bot->reply(':sob: ' . $name);
 });
 
-$botman->hears('(.*) :\+1:', function (BotMan $bot, $name) {
+$botman->hears('(.*) :\+1:(:.*:)?', function (BotMan $bot, $name, $color = null) {
     $bot->reply('keep doing great work ' . $name);
 });
 
-$botman->hears(':\+1: (.*)', function (BotMan $bot, $name) {
+$botman->hears(':\+1:(:.*:)? (.*)', function (BotMan $bot, $color, $name) {
     $bot->reply('keep doing great work ' . $name);
 });
