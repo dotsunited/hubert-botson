@@ -18,11 +18,12 @@ $botman->hears('(.*)', function (BotMan $bot, $pattern) {
         if (false !== preg_match('/^\*.*\* transitioned a `.*` from `.*` to `(.*)`/', $text, $matches)) {
             $status = $matches[1];
 
+            $bot->reply($status);
             if (!in_array($status, ['Done', 'Resolved'])) {
                 return;
             }
         } else {
-           return;
+            $bot->reply($text);
         }
 
         $bot->reply($status, $issueId);
