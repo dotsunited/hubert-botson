@@ -8,12 +8,10 @@ $botman->hears('(.*)', function (BotMan $bot, $pattern) {
         $payload = $bot->getMessage()->getPayload();
 
         $title = reset($payload['attachments'])['title'];
-        $issueId = 0;
         if (false !== preg_match('/^([A-Z]+-([0-9]+))/', $title, $matches)) {
             list(,, $issueId) = $matches;
-            $bot->reply($issueId);
         } else {
-            $bot->reply($title);
+            return;
         }
 
         $text = reset($payload['attachments'])['text'];
@@ -24,8 +22,10 @@ $botman->hears('(.*)', function (BotMan $bot, $pattern) {
                 return;
             }
         } else {
-            $bot->reply($text);
+           return;
         }
+
+        $bot->reply($status, $issueId);
 
         $files = scandir(__DIR__ . '/../assets/celebrate-jira-issues', SCANDIR_SORT_ASCENDING);
 
