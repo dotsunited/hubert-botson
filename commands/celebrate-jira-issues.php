@@ -6,7 +6,7 @@ use BotMan\BotMan\BotMan;
 $botman->hears('(.*)', function (BotMan $bot, $pattern) {
     if ('BBYVB4RK4' === $bot->getMessage()->getPayload()['bot_id']) {
         $payload = $bot->getMessage()->getPayload();
-        $bot->reply(json_encode($payload));
+        //$bot->reply(json_encode($payload));
 
         $text = reset($payload['attachments'])['pretext'];
         if (false !== preg_match('/^\*.*\* transitioned a `.*` from `.*` to `(.*)`/', $text, $matches)) {
