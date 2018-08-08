@@ -11,6 +11,9 @@ $botman->hears('(.*)', function (BotMan $bot, $pattern) {
         $issueId = 0;
         if (false !== preg_match('/^([A-Z]+-([0-9]+))/', $title, $matches)) {
             list(,, $issueId) = $matches;
+            $bot->reply($issueId);
+        } else {
+            $bot->reply($title);
         }
 
         $text = reset($payload['attachments'])['text'];
@@ -20,7 +23,11 @@ $botman->hears('(.*)', function (BotMan $bot, $pattern) {
             if (!in_array($status, ['Done', 'Resolved'])) {
                 return;
             }
+        } else {
+            $bot->reply($text);
         }
+
+        $bot->reply($payload['attachments']);
 
         $files = scandir(__DIR__ . '/../assets/celebrate-jira-issues', SCANDIR_SORT_ASCENDING);
 
@@ -39,5 +46,7 @@ $botman->hears('(.*)', function (BotMan $bot, $pattern) {
         if (false !== $celebrate) {
             $bot->reply('CELEBRATE ISSUE!');
         }
+    } else {
+        $bot->reply($bot->getUser()->getUsername());
     }
 });
