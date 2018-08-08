@@ -7,6 +7,8 @@ $botman->hears('(.*)', function (BotMan $bot, $pattern) {
     if ('Jira Cloud' === $bot->getUser()->getUsername()) {
         $payload = $bot->getMessage()->getPayload();
 
+        $bot->reply($payload['attachments']);
+
         $title = reset($payload['attachments'])['title'];
         $issueId = 0;
         if (false !== preg_match('/^([A-Z]+-([0-9]+))/', $title, $matches)) {
@@ -26,8 +28,6 @@ $botman->hears('(.*)', function (BotMan $bot, $pattern) {
         } else {
             $bot->reply($text);
         }
-
-        $bot->reply($payload['attachments']);
 
         $files = scandir(__DIR__ . '/../assets/celebrate-jira-issues', SCANDIR_SORT_ASCENDING);
 
