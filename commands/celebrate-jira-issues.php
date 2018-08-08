@@ -3,51 +3,40 @@
 use BotMan\BotMan\BotMan;
 
 /** @var $botman BotMan */
-$botman->hears('(.*)', function (BotMan $bot, $pattern) {
-    if ('BBYVB4RK4' === $bot->getMessage()->getPayload()['bot_id']) {
-        $payload = $bot->getMessage()->getPayload();
-        //$bot->reply(json_encode($payload));
-
-        $text = reset($payload['attachments'])['pretext'];
-        if (false !== preg_match('/^\*.*\* transitioned a `.*` from `.*` to `(.*)`/', $text, $matches)) {
-            $status = $matches[1];
-
-            if (!in_array($status, ['Done', 'Resolved'])) {
-                return;
-            }
-        } else {
-            return;
-        }
-
-        $title = reset($payload['attachments'])['title'];
-        if (false !== preg_match('/^([A-Z]+-([\d]+))/', $title, $matches)) {
-            list(,, $issueId) = $matches;
-        } else {
-            return;
-        }
-
-        $bot->reply(json_encode($payload['attachments']));
-
-        $bot->reply($status, $issueId);
-
-        $files = scandir(__DIR__ . '/../assets/celebrate-jira-issues', SCANDIR_SORT_ASCENDING);
-
-        $celebrate = false;
-        foreach ($files as $file) {
-            if ($file === '.' || $file === '..') {
-                continue;
-            }
-
-            if (false !== strpos($file, $issueId)) {
-                $celebrate = $issueId;
-                break;
-            }
-        }
-
-        if (false !== $celebrate) {
-            $bot->reply('CELEBRATE ISSUE!');
-        }
-    } else {
-        $bot->reply($bot->getUser()->getUsername());
+$botman->hears('/^\*.*\* transitioned a `.*` from `.*` to `(.*)`/', function (BotMan $bot, $status) {
+    $payload = $bot->getMessage()->getPayload();
+    if ('BBYVB4RK4' !== $payload['bot_id']) {
+        return;
     }
+
+    if (!in_array($status, ['Done', 'Resolved'])) {
+        return;
+    }
+
+    $title = reset($payload['attachments'])['title'];
+    if (false !== preg_match('/^([A-Z]+-([\d]+))/', $title, $matches)) {
+        list(,, $issueId) = $matches;
+    } else {
+        return;
+    }
+
+    $bot->reply($status, $issueId);
+
+//    $files = scandir(__DIR__ . '/../assets/celebrate-jira-issues', SCANDIR_SORT_ASCENDING);
+//
+//    $celebrate = false;
+//    foreach ($files as $file) {
+//        if ($file === '.' || $file === '..') {
+//            continue;
+//        }
+//
+//        if (false !== strpos($file, $issueId)) {
+//            $celebrate = $issueId;
+//            break;
+//        }
+//    }
+//
+//    if (false !== $celebrate) {
+//        $bot->reply('CELEBRATE ISSUE!');
+//    }
 });
