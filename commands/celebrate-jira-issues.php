@@ -4,6 +4,7 @@ use BotMan\BotMan\BotMan;
 
 /** @var $botman BotMan */
 $botman->hears('/^\*.*\* transitioned a `.*` from `.*` to `(.*)`/', function (BotMan $bot, $status) {
+    $bot->reply('HALLO WELT');
     $payload = $bot->getMessage()->getPayload();
     if ('BBYVB4RK4' !== $payload['bot_id']) {
         return;
@@ -20,7 +21,7 @@ $botman->hears('/^\*.*\* transitioned a `.*` from `.*` to `(.*)`/', function (Bo
         return;
     }
 
-    $bot->reply($status, $issueId);
+    //$bot->reply($status, $issueId);
 
 //    $files = scandir(__DIR__ . '/../assets/celebrate-jira-issues', SCANDIR_SORT_ASCENDING);
 //
