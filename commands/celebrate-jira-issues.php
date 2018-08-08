@@ -37,6 +37,14 @@ $botman->hears('^\*.*\* transitioned a `.*` from `.*` to `(.*)`', function (BotM
     }
 
     if (false !== $celebrate) {
-        $bot->reply('CELEBRATE ISSUE!');
+        $bot->sendRequest('chat.postMessage', [
+            'channel' => $bot->getMessage()->getRecipient(),
+            'as_user' => true,
+            'attachments' => json_encode([
+                [
+                    'image_url' => 'https://' . $_SERVER['HTTP_HOST'] . '/assets/celebrate-jira-issues/' . $celebrate . '.gif'
+                ]
+            ]),
+        ]);
     }
 });
