@@ -3,7 +3,7 @@
 use BotMan\BotMan\BotMan;
 
 /** @var $botman BotMan */
-$botman->hears('h5 {name}', function (BotMan $bot, $name) {
+$botman->hears('(\^5|h5) (.*)', function (BotMan $bot, $highfive, $name) {
     $bot->randomReply([
         ':kissing_heart: ' . $name,
         ':star-struck: ' . $name,

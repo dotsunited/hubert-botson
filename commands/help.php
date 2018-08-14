@@ -42,6 +42,7 @@ EOD
                         'title' => 'Praise',
                         'value' => <<<EOD
 h5 {name} - gives positive reaction to {name}
+^5 {name} - gives positive reaction to {name}
 peace {name} - dif-tor heh smusma {name} / live long and prosper {name}
 sad {name} - gives sad reaction to {name}
 {name} :+1: - gives positive reaction to {name}
