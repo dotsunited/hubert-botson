@@ -4,7 +4,7 @@ use BotMan\BotMan\BotMan;
 
 /** @var $botman BotMan */
 $botman->hears('help', function (BotMan $bot) {
-    $bot->sendRequest('chat.postMessage', [
+    betterSendRequest($bot, 'chat.postMessage', [
         'channel' => $bot->getMessage()->getRecipient(),
         'as_user' => true,
         'attachments' => json_encode([

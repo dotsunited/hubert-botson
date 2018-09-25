@@ -15,5 +15,5 @@ $botman->hears('tell me a (joke|fred)', function (BotMan $bot, $param) {
             $joke = $object->value->joke;
     }
 
-    $bot->reply(htmlspecialchars_decode($joke));
+    betterReply($bot, htmlspecialchars_decode($joke));
 });

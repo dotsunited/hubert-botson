@@ -4,7 +4,7 @@ use BotMan\BotMan\BotMan;
 
 /** @var $botman BotMan */
 $botman->hears('userinfo', function (BotMan $bot) {
-    $bot->sendRequest('chat.postEphemeral', [
+    betterSendRequest($bot, 'chat.postEphemeral', [
         'channel' => $bot->getMessage()->getRecipient(),
         'text' => sprintf(
             '%s %s (%s), id: %s',

@@ -35,3 +35,15 @@ function betterReply(\BotMan\BotMan\BotMan $botMan, $message, array $additionalP
 
     $botMan->reply($message, array_merge($additionalParameters, $payload));
 }
+
+function betterSendRequest(\BotMan\BotMan\BotMan $botMan, $endpoint, array $additionalParameters = [])
+{
+    $thread = $botMan->getMessage()->getPayload()['thread_ts'] ?? null;
+
+    $payload = [];
+    if ($thread) {
+        $payload['thread_ts'] = $thread;
+    }
+
+    $botMan->sendRequest($endpoint, array_merge($additionalParameters, $payload));
+}

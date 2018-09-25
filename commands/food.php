@@ -4,7 +4,7 @@ use BotMan\BotMan\BotMan;
 
 /** @var $botman BotMan */
 $botman->hears('.*\b(Essen|essen)\b.*', function (BotMan $bot) {
-    $bot->reply(':chompy: :pizza:');
+    betterReply($bot, ':chompy: :pizza:');
 });
 
 $botman->hears('order ([^ ]+)( [^ ]+)?( \<http[^ ]+\>)?', function (BotMan $bot, $restaurant, $user = null, $link = null) {
@@ -18,5 +18,5 @@ $botman->hears('order ([^ ]+)( [^ ]+)?( \<http[^ ]+\>)?', function (BotMan $bot,
         $reply .= '(' . trim($link) . ')';
     }
 
-    $bot->reply($reply);
+    betterReply($bot, $reply);
 });
