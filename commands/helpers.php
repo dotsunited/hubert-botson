@@ -14,13 +14,5 @@ $botman->hears('(time|today|now)', function (BotMan $bot) {
 
 $botman->hears('^debug$', function (BotMan $bot) {
     $payload = $bot->getMessage()->getPayload();
-
-    $thread = $bot->getMessage()->getPayload()['thread_ts'] ?? null;
-
-    $p = [];
-    if ($thread) {
-        $p['thread_ts'] = $thread;
-    }
-
-    $bot->reply(json_encode($payload), $p);
+    betterReply($bot, json_encode($payload));
 });

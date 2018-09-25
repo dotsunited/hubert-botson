@@ -23,3 +23,15 @@ function loadCommands(&$botman, $commandDir) {
         }
     }
 }
+
+function betterReply(\BotMan\BotMan\BotMan $botMan, $message, array $additionalParameters = [])
+{
+    $thread = $botMan->getMessage()->getPayload()['thread_ts'] ?? null;
+
+    $payload = [];
+    if ($thread) {
+        $payload['thread_ts'] = $thread;
+    }
+
+    $botMan->reply($message, array_merge($additionalParameters, $payload));
+}
