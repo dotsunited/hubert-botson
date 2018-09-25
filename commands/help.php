@@ -29,6 +29,7 @@ $botman->hears('help', function (BotMan $bot) {
                         'value' => <<<EOD
 time|today|now - displays current time
 ping - returns pong
+debug - returns message payload
 EOD
                     ],
                     [

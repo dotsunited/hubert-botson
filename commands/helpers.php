@@ -11,3 +11,8 @@ $botman->hears('(time|today|now)', function (BotMan $bot) {
     $date = new DateTime('now', new DateTimeZone('Europe/Berlin'));
     $bot->reply($date->format('l, d. F Y (W. \C\W) H:i:s'));
 });
+
+$botman->hears('^debug$', function (BotMan $bot) {
+    $payload = $bot->getMessage()->getPayload();
+    $bot->reply(json_encode($payload));
+});
