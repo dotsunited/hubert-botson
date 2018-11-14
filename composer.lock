@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "227603e6e5ab2a935054654237bdbdc8",
+    "content-hash": "44fd9e7a5de4521b4e7040e291b8a801",
     "packages": [
         {
             "name": "botman/botman",
@@ -402,16 +402,16 @@
         },
         {
             "name": "mpociot/phpws",
-            "version": "2.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mpociot/phpws.git",
-                "reference": "3b52e8c68e680019109845a48bdef7d27b2cc87b"
+                "reference": "7217df2ba62979ec025d9551e6a3a7f09cf34c5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mpociot/phpws/zipball/3b52e8c68e680019109845a48bdef7d27b2cc87b",
-                "reference": "3b52e8c68e680019109845a48bdef7d27b2cc87b",
+                "url": "https://api.github.com/repos/mpociot/phpws/zipball/7217df2ba62979ec025d9551e6a3a7f09cf34c5d",
+                "reference": "7217df2ba62979ec025d9551e6a3a7f09cf34c5d",
                 "shasum": ""
             },
             "require": {
@@ -434,7 +434,7 @@
                 }
             ],
             "description": "WebSocket Server and Client library for PHP",
-            "time": "2017-12-22T21:57:55+00:00"
+            "time": "2018-10-04T14:05:38+00:00"
         },
         {
             "name": "mpociot/pipeline",
@@ -482,16 +482,16 @@
         },
         {
             "name": "mpociot/slack-client",
-            "version": "1.1",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mpociot/slack-client.git",
-                "reference": "c4d82a6f721fdd1b31681c6261c25727729274fb"
+                "reference": "3c6eadaf2fdfc1a8aa7929fb39fca3fe92ff2b44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mpociot/slack-client/zipball/c4d82a6f721fdd1b31681c6261c25727729274fb",
-                "reference": "c4d82a6f721fdd1b31681c6261c25727729274fb",
+                "url": "https://api.github.com/repos/mpociot/slack-client/zipball/3c6eadaf2fdfc1a8aa7929fb39fca3fe92ff2b44",
+                "reference": "3c6eadaf2fdfc1a8aa7929fb39fca3fe92ff2b44",
                 "shasum": ""
             },
             "require": {
@@ -500,7 +500,8 @@
                 "mpociot/phpws": "^2.0",
                 "php": ">=5.5",
                 "react/event-loop": "^1.0 || ^0.5 || ^0.4",
-                "react/promise": "^2.2"
+                "react/promise": "^2.2",
+                "react/promise-timer": "^1.2.1"
             },
             "require-dev": {
                 "apigen/apigen": "^4.1",
@@ -529,20 +530,20 @@
                 "realtime",
                 "slack"
             ],
-            "time": "2018-06-24T20:14:49+00:00"
+            "time": "2018-10-18T13:09:01+00:00"
         },
         {
             "name": "opis/closure",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opis/closure.git",
-                "reference": "8cf94ab02f53a3988a1c467d81c13f806bb09647"
+                "reference": "d3209e46ad6c69a969b705df0738fd0dbe26ef9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opis/closure/zipball/8cf94ab02f53a3988a1c467d81c13f806bb09647",
-                "reference": "8cf94ab02f53a3988a1c467d81c13f806bb09647",
+                "url": "https://api.github.com/repos/opis/closure/zipball/d3209e46ad6c69a969b705df0738fd0dbe26ef9e",
+                "reference": "d3209e46ad6c69a969b705df0738fd0dbe26ef9e",
                 "shasum": ""
             },
             "require": {
@@ -590,7 +591,7 @@
                 "serialization",
                 "serialize"
             ],
-            "time": "2018-09-20T08:06:17+00:00"
+            "time": "2018-10-02T13:36:53+00:00"
         },
         {
             "name": "psr/container",
@@ -780,16 +781,16 @@
         },
         {
             "name": "react/dns",
-            "version": "v0.4.15",
+            "version": "v0.4.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/dns.git",
-                "reference": "319e110a436d26a2fa137cfa3ef2063951715794"
+                "reference": "0a0bedfec72b38406413c6ea01e1c015bd0bf72b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/dns/zipball/319e110a436d26a2fa137cfa3ef2063951715794",
-                "reference": "319e110a436d26a2fa137cfa3ef2063951715794",
+                "url": "https://api.github.com/repos/reactphp/dns/zipball/0a0bedfec72b38406413c6ea01e1c015bd0bf72b",
+                "reference": "0a0bedfec72b38406413c6ea01e1c015bd0bf72b",
                 "shasum": ""
             },
             "require": {
@@ -821,7 +822,7 @@
                 "dns-resolver",
                 "reactphp"
             ],
-            "time": "2018-07-02T12:17:56+00:00"
+            "time": "2018-11-11T11:21:13+00:00"
         },
         {
             "name": "react/event-loop",
@@ -1104,16 +1105,16 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v4.1.4",
+            "version": "v4.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "3a5c91e133b220bb882b3cd773ba91bf39989345"
+                "reference": "82d494c1492b0dd24bbc5c2d963fb02eb44491af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/3a5c91e133b220bb882b3cd773ba91bf39989345",
-                "reference": "3a5c91e133b220bb882b3cd773ba91bf39989345",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/82d494c1492b0dd24bbc5c2d963fb02eb44491af",
+                "reference": "82d494c1492b0dd24bbc5c2d963fb02eb44491af",
                 "shasum": ""
             },
             "require": {
@@ -1154,20 +1155,20 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2018-08-27T17:47:02+00:00"
+            "time": "2018-10-31T09:09:42+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.9.0",
+            "version": "v1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "d0cd638f4634c16d8df4508e847f14e9e43168b8"
+                "reference": "c79c051f5b3a46be09205c73b80b346e4153e494"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/d0cd638f4634c16d8df4508e847f14e9e43168b8",
-                "reference": "d0cd638f4634c16d8df4508e847f14e9e43168b8",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/c79c051f5b3a46be09205c73b80b346e4153e494",
+                "reference": "c79c051f5b3a46be09205c73b80b346e4153e494",
                 "shasum": ""
             },
             "require": {
@@ -1213,20 +1214,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-08-06T14:22:27+00:00"
+            "time": "2018-09-21T13:07:52+00:00"
         },
         {
             "name": "symfony/polyfill-php72",
-            "version": "v1.9.0",
+            "version": "v1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php72.git",
-                "reference": "95c50420b0baed23852452a7f0c7b527303ed5ae"
+                "reference": "9050816e2ca34a8e916c3a0ae8b9c2fccf68b631"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php72/zipball/95c50420b0baed23852452a7f0c7b527303ed5ae",
-                "reference": "95c50420b0baed23852452a7f0c7b527303ed5ae",
+                "url": "https://api.github.com/repos/symfony/polyfill-php72/zipball/9050816e2ca34a8e916c3a0ae8b9c2fccf68b631",
+                "reference": "9050816e2ca34a8e916c3a0ae8b9c2fccf68b631",
                 "shasum": ""
             },
             "require": {
@@ -1268,20 +1269,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-08-06T14:22:27+00:00"
+            "time": "2018-09-21T13:07:52+00:00"
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v4.1.4",
+            "version": "v4.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "a05426e27294bba7b0226ffc17dd01a3c6ef9777"
+                "reference": "60319b45653580b0cdacca499344577d87732f16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/a05426e27294bba7b0226ffc17dd01a3c6ef9777",
-                "reference": "a05426e27294bba7b0226ffc17dd01a3c6ef9777",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/60319b45653580b0cdacca499344577d87732f16",
+                "reference": "60319b45653580b0cdacca499344577d87732f16",
                 "shasum": ""
             },
             "require": {
@@ -1343,20 +1344,20 @@
                 "debug",
                 "dump"
             ],
-            "time": "2018-08-02T09:24:26+00:00"
+            "time": "2018-10-02T16:36:10+00:00"
         },
         {
             "name": "tightenco/collect",
-            "version": "v5.7.3",
+            "version": "v5.7.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tightenco/collect.git",
-                "reference": "a4d5291ee732f8accad72d02ba2a06dc20780b75"
+                "reference": "5172ad96c54560352b79386b293375da40280fdc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tightenco/collect/zipball/a4d5291ee732f8accad72d02ba2a06dc20780b75",
-                "reference": "a4d5291ee732f8accad72d02ba2a06dc20780b75",
+                "url": "https://api.github.com/repos/tightenco/collect/zipball/5172ad96c54560352b79386b293375da40280fdc",
+                "reference": "5172ad96c54560352b79386b293375da40280fdc",
                 "shasum": ""
             },
             "require": {
@@ -1393,7 +1394,7 @@
                 "collection",
                 "laravel"
             ],
-            "time": "2018-09-14T01:47:28+00:00"
+            "time": "2018-11-09T19:12:42+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -1946,7 +1947,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "~7.0",
+        "php": ">=7.1",
         "ext-json": "*"
     },
     "platform-dev": []
