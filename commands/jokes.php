@@ -27,6 +27,8 @@ $botman->hears('tell me a joke', function (BotMan $bot, $param) {
 
     $response = $client->get($api['url'], $api['options'] ?? []);
 
+    betterReply($bot, $response);
+
     $object = json_decode($response->getBody()->getContents());
 
     $joke = $object;
