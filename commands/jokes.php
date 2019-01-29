@@ -1,18 +1,37 @@
 <?php
 
 use BotMan\BotMan\BotMan;
+use GuzzleHttp\Client;
 
 /** @var $botman BotMan */
-$botman->hears('tell me a (joke|fred)', function (BotMan $bot, $param) {
-    $response = file_get_contents('http://api.icndb.com/jokes/random');
-    $object = json_decode($response);
+$botman->hears('tell me a joke', function (BotMan $bot, $param) {
+    $apis = [
+        [
+            'url' => 'http://api.icndb.com/jokes/random',
+            'extract' => ['value', 'joke']
+        ],
+        [
+            'url' => 'https://icanhazdadjoke.com/',
+            'options' => [
+                'headers' => [
+                    'accept' => 'application/json',
+                ]
+            ],
+            'extract' => ['joke']
+        ],
+    ];
 
-    switch (mb_strtolower($param)) {
-        case 'fred':
-            $joke = str_replace('Chuck Norris', 'Fred', $object->value->joke);
-            break;
-        default:
-            $joke = $object->value->joke;
+    $api = $apis[array_rand($apis, 1)];
+
+    $client = new Client();
+
+    $response = $client->get($api['url'], $api['options'] ?? []);
+
+    $object = json_decode($response->getBody()->getContents());
+
+    $joke = $object;
+    foreach ($api['extract'] as $value) {
+        $joke = $joke->$value;
     }
 
     betterReply($bot, htmlspecialchars_decode($joke));

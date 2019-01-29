@@ -36,10 +36,6 @@ $botman->hears('sad {name}', function (BotMan $bot, $name) {
     betterReply($bot, ':sob: ' . $name);
 });
 
-$botman->hears('(.*) :\+1:(:.*:)?', function (BotMan $bot, $name, $color = null) {
-    betterReply($bot, 'keep doing great work ' . $name);
-});
-
 $botman->hears(':\+1:(:.*:)? (.*)', function (BotMan $bot, $color, $name) {
     betterReply($bot, 'keep doing great work ' . $name);
 });

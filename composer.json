@@ -14,7 +14,8 @@
         "ext-json": "*",
         "botman/botman": "^2.3",
         "botman/driver-slack": "^2.1",
-        "vlucas/phpdotenv": "^2.5"
+        "vlucas/phpdotenv": "^2.5",
+        "guzzlehttp/guzzle": "^6.3"
     },
     "require-dev": {
         "heroku/heroku-buildpack-php": "^140.0"

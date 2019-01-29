@@ -36,7 +36,6 @@ EOD
                         'title' => 'Jokes',
                         'value' => <<<EOD
 tell me a joke - tells you a joke
-tell me a fred - tells you a joke with fred
 EOD
                     ],
                     [
