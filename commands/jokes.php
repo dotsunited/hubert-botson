@@ -4,7 +4,7 @@ use BotMan\BotMan\BotMan;
 use GuzzleHttp\Client;
 
 /** @var $botman BotMan */
-$botman->hears('tell me a joke', function (BotMan $bot, $param) {
+$botman->hears('tell me a joke', function (BotMan $bot) {
     $apis = [
         [
             'url' => 'http://api.icndb.com/jokes/random',
