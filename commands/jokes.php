@@ -14,7 +14,7 @@ $botman->hears('tell me a joke', function (BotMan $bot) {
             'url' => 'https://icanhazdadjoke.com/',
             'options' => [
                 'headers' => [
-                    'accept' => 'application/json',
+                    'Accept' => 'application/json',
                 ]
             ],
             'extract' => ['joke']
@@ -22,8 +22,6 @@ $botman->hears('tell me a joke', function (BotMan $bot) {
     ];
 
     $api = $apis[array_rand($apis, 1)];
-
-    betterReply($bot, $api);
 
     $client = new Client();
 
