@@ -23,11 +23,11 @@ $botman->hears('tell me a joke', function (BotMan $bot, $param) {
 
     $api = $apis[array_rand($apis, 1)];
 
+    betterReply($bot, $api);
+
     $client = new Client();
 
     $response = $client->get($api['url'], $api['options'] ?? []);
-
-    betterReply($bot, $response);
 
     $object = json_decode($response->getBody()->getContents());
 
