@@ -50,10 +50,12 @@ $botman->hears('ene mene muh', function (BotMan $bot) {
 
     $members = [];
     foreach ($json['members'] as $member) {
+        if ($member['is_bot']) { continue; }
+
         $members[$member['id']] = $member['profile'];
     }
 
     $caught = array_rand($members, 1);
 
-    betterReply($bot, 'und raus bist du @' . $caught);
+    betterReply($bot, 'und raus bist du @' . $members[$caught]['display_name']);
 });
