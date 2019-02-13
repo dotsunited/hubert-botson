@@ -61,5 +61,5 @@ $botman->hears('ene mene muh', function (BotMan $bot) {
 });
 
 $botman->hears('ene mene mühe', function (BotMan $bot) {
-    betterReply($bot, '<@Mirko> steht auf Kühe!');
+    betterReply($bot, '<@DCBJSUQ7P> steht auf Kühe!');
 });
