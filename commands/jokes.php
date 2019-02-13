@@ -38,25 +38,19 @@ $botman->hears('tell me a joke', function (BotMan $bot) {
 });
 
 $botman->hears('ene mene muh', function (BotMan $bot) {
-    $client = new Client();
+    $user = getRandomUserID();
 
-    $response = $client->get('https://slack.com/api/conversations.members', [
-        'query' => [
-            'token' => getenv('SLACK_TOKEN'),
-            'channel' => 'C03DDHLD4'
-        ]
-    ]);
-
-    $json = json_decode($response->getBody()->getContents(), true);
-
-    $users = $json['members'];
-
-    $caught = array_rand($users, 1);
-
-    betterReply($bot, 'und raus bist du <@' . $users[$caught] . '>');
+    betterReply($bot, 'und raus bist du <@' . $user . '>');
 });
 
 $botman->hears('ene mene mühe', function (BotMan $bot) {
+    $user = getRandomUserID();
+
+    betterReply($bot, '<@' .  $user . '> steht auf Kühe!');
+});
+
+function getRandomUserID()
+{
     $client = new Client();
 
     $response = $client->get('https://slack.com/api/users.list', [
@@ -91,5 +85,5 @@ $botman->hears('ene mene mühe', function (BotMan $bot) {
 
     $caught = array_rand($users, 1);
 
-    betterReply($bot, '<@' .  $users[$caught] . '> steht auf Kühe!');
-});
+    return $users[$caught];
+}
