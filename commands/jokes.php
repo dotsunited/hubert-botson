@@ -61,6 +61,7 @@ function getRandomUserID()
 
     $exclude = [
         'U03DDHLCN', // dotsunited
+        'U046BPL66', // kai
         'UBYRVK3DJ', // hubert
         'UBZ3ZM8MB', // jira
         'UBZTD8NP5', // weather hippie
