@@ -85,5 +85,5 @@ function getRandomUserID()
 
     $caught = array_rand($users, 1);
 
-    return $users[$caught];
+    return $users[$caught]['id'];
 }
