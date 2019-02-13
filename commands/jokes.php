@@ -57,5 +57,9 @@ $botman->hears('ene mene muh', function (BotMan $bot) {
 
     $caught = array_rand($members, 1);
 
-    betterReply($bot, 'und raus bist du @' . $members[$caught]['display_name']);
+    betterReply($bot, 'und raus bist du <@' . $caught . '>');
+});
+
+$botman->hears('ene mene mühe', function (BotMan $bot) {
+    betterReply($bot, '<@Mirko> steht auf Kühe!');
 });
