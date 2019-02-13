@@ -66,9 +66,23 @@ $botman->hears('ene mene mühe', function (BotMan $bot) {
         ]
     ]);
 
+    $exclude = [
+        'U03DDHLCN', // dotsunited
+        'UBYRVK3DJ', // hubert
+        'UBZ3ZM8MB', // jira
+        'UBZTD8NP5', // weather hippie
+        'UC03LP50V', // github
+        'UC1QKMCPR', // hubert botman
+        'UCKCZJZ36', // confluence
+        'UD4NZQSJG', // tempo
+        'UDRJW7HKJ', // sentry
+        'UEEU600H1', // translate
+        'USLACKBOT', // slackbot
+    ];
+
     $json = json_decode($response->getBody()->getContents(), true);
 
-    $users = $json['members'];
+    $users = array_diff($json['members'], $exclude);
 
     $caught = array_rand($users, 1);
 
