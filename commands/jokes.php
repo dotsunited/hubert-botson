@@ -37,7 +37,7 @@ $botman->hears('tell me a joke', function (BotMan $bot) {
     betterReply($bot, htmlspecialchars_decode($joke));
 });
 
-$bot->hears('ene mene muh', function (BotMan $bot) {
+$botman->hears('ene mene muh', function (BotMan $bot) {
     $client = new Client();
 
     $reponse = $client->get('https://slack.com/api/users.list', [
