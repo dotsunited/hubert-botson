@@ -59,10 +59,9 @@ $botman->hears('ene mene muh', function (BotMan $bot) {
 $botman->hears('ene mene mühe', function (BotMan $bot) {
     $client = new Client();
 
-    $response = $client->get('https://slack.com/api/conversations.members', [
+    $response = $client->get('https://slack.com/api/users.list', [
         'query' => [
             'token' => getenv('SLACK_TOKEN'),
-            'channel' => 'C03DDHLD4'
         ]
     ]);
 
@@ -82,7 +81,13 @@ $botman->hears('ene mene mühe', function (BotMan $bot) {
 
     $json = json_decode($response->getBody()->getContents(), true);
 
-    $users = array_diff($json['members'], $exclude);
+    $users = $json['members'];
+
+    foreach ($users as $key => $user) {
+        if (in_array($user['id'], $exclude, true)) {
+            unset($users[$key]);
+        }
+    }
 
     $caught = array_rand($users, 1);
 
