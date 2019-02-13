@@ -36,6 +36,7 @@ EOD
                         'title' => 'Jokes',
                         'value' => <<<EOD
 tell me a joke - tells you a joke
+ene mene muh - select one person from userlist
 EOD
                     ],
                     [
