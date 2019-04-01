@@ -26,7 +26,7 @@ $botman->hears('^lookup ((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4]
     $object = json_decode($response->getBody()->getContents(), true);
 
     if (isset($object['reserved']) && true === $object['reserved']) {
-        betterReply($bot, sprintf('%s: reserved', $ip));
+        betterReply($bot, sprintf('IP %s: reserved', $ip));
     } else {
         betterReply($bot, sprintf(
             'IP %s: %s %s, %s, %s - Coordinates: %s|%s (%s)',
