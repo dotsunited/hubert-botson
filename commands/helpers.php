@@ -18,7 +18,7 @@ $botman->hears('^debug$', function (BotMan $bot) {
     betterReply($bot, json_encode($payload));
 });
 
-$botman->hears('^lookup ((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))$', function (BotMan $bot, $_, $ip) {
+$botman->hears('^lookup ((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))$', function (BotMan $bot, $ip) {
     $client = new Client();
 
     $response = $client->get(sprintf('https://ipapi.co/%s/json', $ip));
