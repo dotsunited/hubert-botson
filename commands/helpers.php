@@ -29,7 +29,7 @@ $botman->hears('^lookup ((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4]
         betterReply($bot, sprintf('%s: reserved', $ip));
     } else {
         betterReply($bot, sprintf(
-            '%s: %s %s, %s, %s - Coordinates: %s / %s (%s)',
+            'IP %s: %s %s, %s, %s - Coordinates: %s|%s (%s)',
             $ip,
             $object['postal'],
             $object['city'],
