@@ -30,6 +30,7 @@ $botman->hears('help', function (BotMan $bot) {
 time|today|now - displays current time
 ping - returns pong
 debug - returns message payload
+lookup {ip} - gives information about the given ip
 EOD
                     ],
                     [
@@ -37,6 +38,7 @@ EOD
                         'value' => <<<EOD
 tell me a joke - tells you a joke
 ene mene muh - select one person from userlist
+ene mene mühe - select one person from userlist
 EOD
                     ],
                     [
