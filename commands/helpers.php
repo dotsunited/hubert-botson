@@ -13,9 +13,9 @@ $botman->hears('(time|today|now)', function (BotMan $bot) {
     betterReply($bot, $date->format('l, d. F Y (W. \C\W) H:i:s'));
 });
 
-$botman->hears('^debug$', function (BotMan $bot) {
+$botman->hears('^debug (.*)', function (BotMan $bot, $message) {
     $payload = $bot->getMessage()->getPayload();
-    betterReply($bot, json_encode($payload));
+    betterReply($bot, json_encode($payload, $message));
 });
 
 $botman->hears('^lookup ((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))$', function (BotMan $bot, $ip) {
@@ -42,9 +42,10 @@ $botman->hears('^lookup ((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4]
     }
 });
 
-$botman->hears('up (.*)', function (BotMan $bot, $domain) {
+$botman->hears('^up (.*)', function (BotMan $bot, $domain) {
     if (!filter_var($domain, FILTER_VALIDATE_URL)) {
         betterReply($bot, $domain . ' is not a valid URL!');
+        return;
     }
 
     $client = new Client();
