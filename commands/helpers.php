@@ -41,3 +41,24 @@ $botman->hears('^lookup ((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4]
         ));
     }
 });
+
+$botman->hears('up (.*)', function (BotMan $bot, $domain) {
+    if (!filter_var($domain, FILTER_VALIDATE_URL)) {
+        betterReply($bot, $domain . ' is not a valid URL!');
+    }
+
+    $client = new Client();
+
+    try {
+        $response = $client->head($domain, [
+            'timeout' => 10
+        ]);
+
+        betterReply($bot, $domain . ' responded with status code ' . $response->getStatusCode());
+        return;
+
+    } catch (\GuzzleHttp\Exception\RequestException $exception) {
+        betterReply($bot,$domain . ' is not up!');
+        return;
+    }
+});

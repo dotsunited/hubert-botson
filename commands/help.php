@@ -31,6 +31,7 @@ time|today|now - displays current time
 ping - returns pong
 debug - returns message payload
 lookup {ip} - gives information about the given ip
+up {domain} - gives information about the domain response
 EOD
                     ],
                     [
