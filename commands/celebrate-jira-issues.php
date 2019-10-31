@@ -3,7 +3,7 @@
 use BotMan\BotMan\BotMan;
 
 /** @var $botman BotMan */
-$botman->hears('^\*.*\* transitioned a `.*` from `.*` to `(.*)`', function (BotMan $bot, $status) {
+$botman->hears('^\*.* transitioned\* a \*`.*`\* from `.*`⟶`(.*)`', function (BotMan $bot, $status) {
     $payload = $bot->getMessage()->getPayload();
     if ('BBYVB4RK4' !== $payload['bot_id']) {
         return;
@@ -15,7 +15,7 @@ $botman->hears('^\*.*\* transitioned a `.*` from `.*` to `(.*)`', function (BotM
 
     $title = reset($payload['attachments'])['title'];
     if (false !== preg_match('/^([A-Z]+-([\d]+))/', $title, $matches)) {
-        list(,, $issueId) = $matches;
+        [,, $issueId] = $matches;
     } else {
         return;
     }
