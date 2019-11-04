@@ -3,7 +3,7 @@
 use BotMan\BotMan\BotMan;
 
 /** @var $botman BotMan */
-$botman->hears('^\*.* transitioned\* a \*`.*`\* from `.*`⟶`(.*)`', function (BotMan $bot, $status) {
+$botman->hears('^.* \*transitioned\* a \*.*\* from `.*` ⟶ `(.*)`', function (BotMan $bot, $status) {
     $payload = $bot->getMessage()->getPayload();
     if ('BBYVB4RK4' !== $payload['bot_id']) {
         return;
