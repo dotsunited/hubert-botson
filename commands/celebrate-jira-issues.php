@@ -5,6 +5,15 @@ use BotMan\BotMan\BotMan;
 /** @var $botman BotMan */
 $botman->hears('\*.* transitioned\* a \*.*\* from `.*` ⟶ `(.*)`', function (BotMan $bot, $status) {
     $payload = $bot->getMessage()->getPayload();
+    $bot->sendRequest('chat.postMessage', [
+        'channel' => $bot->getMessage()->getRecipient(),
+        'as_user' => true,
+        'attachments' => json_encode([
+            [
+                'title' => 'Let\'s debug!'
+            ]
+        ]),
+    ]);
     betterReply($bot, "Message recognized");
     betterReply($bot, $payload);
     betterReply($bot, $status);
