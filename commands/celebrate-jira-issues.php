@@ -3,7 +3,7 @@
 use BotMan\BotMan\BotMan;
 
 /** @var $botman BotMan */
-$botman->hears('^.* \*transitioned\* a \*.*\* from `.*` ⟶ `(.*)`', function (BotMan $bot, $status) {
+$botman->hears('^\*.* transitioned\* a \*.*\* from `.*` ⟶ `(.*)`', function (BotMan $bot, $status) {
     $payload = $bot->getMessage()->getPayload();
     betterReply($bot, "Message recognized");
     betterReply($bot, $payload);
