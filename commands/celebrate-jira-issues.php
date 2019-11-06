@@ -5,16 +5,22 @@ use BotMan\BotMan\BotMan;
 /** @var $botman BotMan */
 $botman->hears('^.* \*transitioned\* a \*.*\* from `.*` ⟶ `(.*)`', function (BotMan $bot, $status) {
     $payload = $bot->getMessage()->getPayload();
+    betterReply($bot, "Message recognized");
+    betterReply($bot, $payload);
+    betterReply($bot, $status);
     if ('BBYVB4RK4' !== $payload['bot_id']) {
+        betterReply($bot, "Invalid id: " . $payload['bot_id']);
         return;
     }
 
     if (!in_array($status, ['Done', 'Resolved'])) {
+        betterReply($bot, "No status recognized: " . $status);
         return;
     }
 
     $title = reset($payload['attachments'])['title'];
     if (false !== preg_match('/^([A-Z]+-([\d]+))/', $title, $matches)) {
+        betterReply($bot, "Matches: " . $matches);
         [,, $issueId] = $matches;
     } else {
         return;
@@ -35,6 +41,8 @@ $botman->hears('^.* \*transitioned\* a \*.*\* from `.*` ⟶ `(.*)`', function (B
             break;
         }
     }
+
+    betterReply($bot, "Celebrate: " . $celebrate);
 
     if (false !== $celebrate) {
         $bot->sendRequest('chat.postMessage', [
