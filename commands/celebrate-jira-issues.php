@@ -5,14 +5,9 @@ use BotMan\BotMan\BotMan;
 /** @var $botman BotMan */
 $botman->hears('.*transitioned.*a.*from.*⟶.*(Done|Resolved)', function (BotMan $bot, $status) {
     $payload = $bot->getMessage()->getPayload();
-    betterReply($bot, "Message recognized");
-    betterReply($bot, $payload);
-    betterReply($bot, $status);
-    betterReply($bot, $payload['bot_id']);
-/*    if ('BBYVB4RK4' !== $payload['bot_id']) {
-        betterReply($bot, "Invalid id: " . $payload['bot_id']);
+    if ('BBYVB4RK4' !== $payload['bot_id']) {
         return;
-    }*/
+    }
 
 /*    if (!in_array($status, ['Done', 'Resolved'])) {
         betterReply($bot, "No status recognized: " . $status);
@@ -22,10 +17,7 @@ $botman->hears('.*transitioned.*a.*from.*⟶.*(Done|Resolved)', function (BotMan
     $title = reset($payload['attachments'])['title'];
 	betterReply($bot, $title);
     if (false !== preg_match('/^([A-Z]+-([\d]+))/', $title, $matches)) {
-        betterReply($bot, "Matches: " . $matches);
         [,, $issueId] = $matches;
-
-		betterReply($bot, $issueId);
     } else {
         return;
     }
@@ -45,8 +37,6 @@ $botman->hears('.*transitioned.*a.*from.*⟶.*(Done|Resolved)', function (BotMan
             break;
         }
     }
-
-    betterReply($bot, "Celebrate: " . $celebrate);
 
     if (false !== $celebrate) {
         $bot->sendRequest('chat.postMessage', [
