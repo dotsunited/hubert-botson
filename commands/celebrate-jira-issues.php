@@ -3,7 +3,7 @@
 use BotMan\BotMan\BotMan;
 
 /** @var $botman BotMan */
-$botman->hears('.*transitioned.*a.*from.*⟶(.*)', function (BotMan $bot, $status) {
+$botman->hears('.*transitioned.*a.*from.*⟶.*(Done|Resolved)', function (BotMan $bot, $status) {
     $payload = $bot->getMessage()->getPayload();
     betterReply($bot, "Message recognized");
     betterReply($bot, $payload);
@@ -13,10 +13,10 @@ $botman->hears('.*transitioned.*a.*from.*⟶(.*)', function (BotMan $bot, $statu
         return;
     }*/
 
-    if (!in_array($status, ['Done', 'Resolved'])) {
+/*    if (!in_array($status, ['Done', 'Resolved'])) {
         betterReply($bot, "No status recognized: " . $status);
         return;
-    }
+    }*/
 
     $title = reset($payload['attachments'])['title'];
     if (false !== preg_match('/^([A-Z]+-([\d]+))/', $title, $matches)) {
