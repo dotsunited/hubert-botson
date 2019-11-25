@@ -15,8 +15,9 @@ $botman->hears('.*transitioned.*a.*from.*⟶.*(Done|Resolved)', function (BotMan
     }*/
 
     $title = reset($payload['attachments'])['title'];
-	betterReply($bot, $title);
+	betterReply($bot, 'title:' . $title);
     if (false !== preg_match('/^([A-Z]+-([\d]+))/', $title, $matches)) {
+		betterReply($bot, 'matches:' . json_encode($matches, true));
         [,, $issueId] = $matches;
     } else {
         return;
