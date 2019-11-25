@@ -9,14 +9,8 @@ $botman->hears('.*transitioned.*a.*from.*⟶.*(Done|Resolved)', function (BotMan
         return;
     }
 
-/*    if (!in_array($status, ['Done', 'Resolved'])) {
-        betterReply($bot, "No status recognized: " . $status);
-        return;
-    }*/
-
     $title = $payload['text'];
     if (false !== preg_match('/([A-Z]+-([\d]+))/', $title, $matches)) {
-		betterReply($bot, 'matches:' . json_encode($matches, true));
         [,, $issueId] = $matches;
     } else {
         return;
