@@ -3,24 +3,15 @@
 use BotMan\BotMan\BotMan;
 
 /** @var $botman BotMan */
-$botman->hears('\*.* transitioned\* a \*.*\* from `.*` ⟶ `(.*)`', function (BotMan $bot, $status) {
+$botman->hears('\*.* transitioned\* a \*.*\* from `.*` ⟶ `(.*)`' || '.* transitioned a .* from .* ⟶ (.*)', function (BotMan $bot, $status) {
     $payload = $bot->getMessage()->getPayload();
-    $bot->sendRequest('chat.postMessage', [
-        'channel' => $bot->getMessage()->getRecipient(),
-        'as_user' => true,
-        'attachments' => json_encode([
-            [
-                'title' => 'Let\'s debug!'
-            ]
-        ]),
-    ]);
     betterReply($bot, "Message recognized");
     betterReply($bot, $payload);
     betterReply($bot, $status);
-    if ('BBYVB4RK4' !== $payload['bot_id']) {
+/*    if ('BBYVB4RK4' !== $payload['bot_id']) {
         betterReply($bot, "Invalid id: " . $payload['bot_id']);
         return;
-    }
+    }*/
 
     if (!in_array($status, ['Done', 'Resolved'])) {
         betterReply($bot, "No status recognized: " . $status);
