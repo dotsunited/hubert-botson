@@ -43,7 +43,21 @@ $botman->hears('^lookup ((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4]
 });
 
 $botman->hears('^up (.*)', function (BotMan $bot, $domain) {
-    if (!filter_var($domain, FILTER_VALIDATE_URL)) {
+    if (false === $parts = parse_url($domain)) {
+        betterReply($bot, $domain . ' is not a valid URL!');
+        return;
+    }
+
+    $domain = '';
+    if ($parts['schema']) {
+        $domain = $parts['schema'] . '://';
+    }
+
+    if ($parts['host']) {
+        $domain .= $parts['host'];
+    }
+
+    if (empty($domain)) {
         betterReply($bot, $domain . ' is not a valid URL!');
         return;
     }
