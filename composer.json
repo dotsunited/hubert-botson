@@ -12,10 +12,10 @@
     "require": {
         "php": ">=7.1",
         "ext-json": "*",
-        "botman/botman": "^2.3",
-        "botman/driver-slack": "^2.1",
-        "vlucas/phpdotenv": "^2.5",
-        "guzzlehttp/guzzle": "^6.3"
+        "botman/botman": "^2.7",
+        "botman/driver-slack": "^2.2",
+        "vlucas/phpdotenv": "^2.6",
+        "guzzlehttp/guzzle": "^6.5"
     },
     "require-dev": {
         "heroku/heroku-buildpack-php": "^140.0"
