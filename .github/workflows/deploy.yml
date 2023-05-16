@@ -1,0 +1,31 @@
+name: 🚀 Deploy on push
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
+
+    - name: 🐘 Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: "7.4"
+
+    - name: 📦 Install dependencies
+      uses: ramsey/composer-install@2.2.0
+      
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: ${{ secrets.FTP_PATH }}
+        local-dir: ${{ secrets.LOCAL_PATH }}
