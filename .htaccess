@@ -1,3 +1,7 @@
+<Files ".env">  
+  Require all denied
+</Files>
+
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
