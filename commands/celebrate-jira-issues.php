@@ -5,7 +5,8 @@ use BotMan\BotMan\BotMan;
 /** @var $botman BotMan */
 $botman->hears('.*transitioned.*a.*from.*⟶.*(Done|Resolved)', function (BotMan $bot, $status) {
     $payload = $bot->getMessage()->getPayload();
-    if ('BBYVB4RK4' !== $payload['bot_id']) {
+    
+    if (strcmp("BBYVB4RK4", $payload['bot_id']) != 0) {
         return;
     }
 
@@ -15,8 +16,6 @@ $botman->hears('.*transitioned.*a.*from.*⟶.*(Done|Resolved)', function (BotMan
     } else {
         return;
     }
-
-    $bot->reply($status, $issueId);
 
     $files = scandir(__DIR__ . '/../assets/celebrate-jira-issues', SCANDIR_SORT_ASCENDING);
 
@@ -32,8 +31,9 @@ $botman->hears('.*transitioned.*a.*from.*⟶.*(Done|Resolved)', function (BotMan
         }
     }
 
-    if (false !== $celebrate) {
-        $bot->sendRequest('chat.postMessage', [
+
+    if ($celebrate !== false) {
+        betterReply($bot, "WUHU " . $celebrate . " Issues gelöst!", [
             'channel' => $bot->getMessage()->getRecipient(),
             'as_user' => true,
             'attachments' => json_encode([
